@@ -24,8 +24,8 @@ input_data = pd.DataFrame([[pclass, age, sibsp, parch, sex]],
 # Predict Button
 if st.button("Predict Survival"):
     prediction = model.predict(input_data)[0]
-    probability = model.predict_proba(input_data)[0][1] # Probability of Class 1 (Survived)
-
+    probs = model.predict_proba(input_data)[0]
+    survival_prob = probs[1]
     if prediction == 1:
         st.success(f"Result: **Survived**")
     else:
