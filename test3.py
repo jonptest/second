@@ -31,4 +31,4 @@ if st.button("Predict Survival"):
     else:
         st.error(f"Result: **Did Not Survive**")
     
-    st.metric(label="Survival Probability", value=f"{probs:.2%}")
+    st.metric(label="Survival Probability", value=f"{probs}")
