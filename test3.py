@@ -18,13 +18,13 @@ parch = st.sidebar.number_input("Parents/Children Aboard", 0, 10, 0)
 
 # Preprocess inputs
 sex_encoded = 1 if sex == "male" else 0
-input_data = pd.DataFrame([[pclass, age, sibsp, parch, sex]], 
+input_data = pd.DataFrame([[pclass, age, sibsp, parch, sex_encoded]], 
                           columns=['Pclass', 'Age', 'SibSp', 'Parch', 'Sex_male'])
 
 # Predict Button
 if st.button("Predict Survival"):
     prediction = model.predict(input_data)[0]
-    probs = model.predict_proba(input_data)[0, 1]
+    probs = model.predict_proba(input_data)[0]
   
     if prediction == 1:
         st.success(f"Result: **Survived**")
