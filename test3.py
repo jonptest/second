@@ -5,7 +5,7 @@ import joblib
 # Load the saved model
 model = joblib.load('titanic_model.pkl')
 
-st.title("🚢 Titanic Survival Predictor")
+st.title("Titanic Survival Predictor")
 st.write("Enter passenger details to see if they would have survived the disaster.")
 
 # Sidebar for inputs
@@ -20,7 +20,7 @@ fare = st.sidebar.number_input("Fare Paid (£)", 0.0, 600.0, 32.0)
 # Preprocess inputs
 sex_encoded = 1 if sex == "male" else 0
 input_data = pd.DataFrame([[pclass, sex_encoded, age, sibsp, parch, fare]], 
-                          columns=['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare'])
+                          columns=['Pclass', 'Sex_male', 'Age', 'SibSp', 'Parch', 'Fare'])
 
 # Predict Button
 if st.button("Predict Survival"):
