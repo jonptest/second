@@ -24,11 +24,11 @@ input_data = pd.DataFrame([[pclass, age, sibsp, parch, sex]],
 # Predict Button
 if st.button("Predict Survival"):
     prediction = model.predict(input_data)[0]
-    probs = model.predict_proba(input_data)[0]
-    survival_prob = probs[1]
+    probs = model.predict_proba(input_data)[0, 1]
+  
     if prediction == 1:
         st.success(f"Result: **Survived**")
     else:
         st.error(f"Result: **Did Not Survive**")
     
-    st.metric(label="Survival Probability", value=f"{probability:.2%}")
+    st.metric(label="Survival Probability", value=f"{probs:.2%}")
