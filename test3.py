@@ -15,12 +15,11 @@ sex = st.sidebar.selectbox("Gender", ["male", "female"])
 age = st.sidebar.slider("Age", 0, 100, 25)
 sibsp = st.sidebar.number_input("Siblings/Spouses Aboard", 0, 10, 0)
 parch = st.sidebar.number_input("Parents/Children Aboard", 0, 10, 0)
-fare = st.sidebar.number_input("Fare Paid (£)", 0.0, 600.0, 32.0)
 
 # Preprocess inputs
 sex_encoded = 1 if sex == "male" else 0
 input_data = pd.DataFrame([[pclass, sex_encoded, age, sibsp, parch, fare]], 
-                          columns=['Pclass', 'Age', 'SibSp', 'Parch', 'Fare', 'Sex_male'])
+                          columns=['Pclass', 'Age', 'SibSp', 'Parch', 'Sex_male'])
 
 # Predict Button
 if st.button("Predict Survival"):
