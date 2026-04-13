@@ -18,7 +18,7 @@ parch = st.sidebar.number_input("Parents/Children Aboard", 0, 10, 0)
 
 # Preprocess inputs
 sex_encoded = 1 if sex == "male" else 0
-input_data = pd.DataFrame([[pclass, sex_encoded, age, sibsp, parch]], 
+input_data = pd.DataFrame([[pclass, age, sibsp, parch, sex]], 
                           columns=['Pclass', 'Age', 'SibSp', 'Parch', 'Sex_male'])
 
 # Predict Button
